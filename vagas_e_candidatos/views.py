@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Vaga, Candidato
-from .forms import VagaForm
+from .forms import VagaForm, CandidatoForm
 
 
 def index(request):
@@ -40,3 +40,10 @@ def cadastrar_vaga(request):
     dados = {'form': form}
 
     return render(request, 'vagas/cadastrar_vaga.html', dados)
+
+
+def cadastrar_candidato(request):
+    form = CandidatoForm()
+    dados = {'form': form}
+
+    return render(request, 'candidatos/cadastrar_candidato.html', dados)

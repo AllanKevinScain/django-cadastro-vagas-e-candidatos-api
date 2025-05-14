@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de vaga</title>
+    <title>Cadastro de candidato</title>
 </head>
 
 <body>
-    <a href=" {% url 'vagas_dashboard' %}">Voltar</a>
+    <a href=" {% url 'candidatos_dashboard' %}">Voltar</a>
 
-    <h1>Cadastro de vaga</h1>
+    <h1>Cadastro de candidato</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
 
-        <button type="submit">Cadastrar vaga</button>
+        <button type="submit">Cadastrar candidato</button>
     </form>
 </body>
 

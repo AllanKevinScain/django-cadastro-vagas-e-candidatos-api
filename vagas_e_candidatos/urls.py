@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import index, vagas_index, candidatos_index, dados_candidato_por_id, dados_vaga_por_id, cadastrar_vaga
+from .views import index
+from .views import vagas_index, candidatos_index
+from .views import dados_candidato_por_id, dados_vaga_por_id
+from .views import cadastrar_vaga, cadastrar_candidato
 
 urlpatterns = [
     path('', index, name='dashboard'),
@@ -16,4 +19,5 @@ urlpatterns = [
         name='dados_vaga_por_id'
     ),
     path('cadastrar-vaga/', cadastrar_vaga, name='cadastrar_vaga'),
+    path('cadastrar-candidato/', cadastrar_candidato, name='cadastrar_candidato'),
 ]
