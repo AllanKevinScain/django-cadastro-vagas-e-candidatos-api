@@ -16,26 +16,25 @@
         <tr>
             <th>Nome</th>
             <th>Sobrenome</th>
-            <th>Data de nascimento</th>
             <th>Gênero</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            <th>Escolaridade</th>
             <th>Vaga</th>
+            <th></th>
         </tr>
         {% for candidato in candidatos %}
         <tr>
             <td>{{ candidato.nome }}</td>
             <td>{{ candidato.sobrenome }}</td>
-            <td>{{ candidato.data_nascimento }}</td>
             <td>{{ candidato.get_genero_display }}</td>
-            <td>{{ candidato.email }}</td>
-            <td>{{ candidato.telefone }}</td>
-            <td>{{ candidato.get_escolaridade_display }}</td>
             <td>{{ candidato.vaga }}</td>
+            <td><a href="{% url 'dados_candidato_por_id' candidato.id %}">ver candidato</a></td>
         </tr>
         {% endfor %}
     </table>
+
+    <br></br>
+    <a href=" {% url 'dashboard' %}">Cadastrar candidato</a>
+    <br></br>
+    <a href=" {% url 'dashboard' %}">Cadastrar vaga</a>
 </body>
 
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatos</title>
+</head>
+
+<body>
+    <a href=" {% url 'candidatos_dashboard' %}">Voltar</a>
+    <br></br>
+    <h1>Dados de {{ candidato.nome }}</h1>
+
+    <br></br>
+    <span>{{ candidato.sobrenome }}</span>
+    <br></br>
+    <span>{{ candidato.data_nascimento }}</span>
+    <br></br>
+    <span>{{ candidato.get_genero_display }}</span>
+    <br></br>
+    <span>{{ candidato.email }}</span>
+    <br></br>
+    <span>{{ candidato.telefone }}</span>
+    <br></br>
+    <span>{{ candidato.get_escolaridade_display }}</span>
+    <br></br>
+    <span>{{ candidato.vaga }}</span>
+</body>
+
+</html>

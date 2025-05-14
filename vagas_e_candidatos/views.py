@@ -18,3 +18,10 @@ def candidatos_index(request):
     dados = {'candidatos': candidatos}
 
     return render(request, 'candidatos/index.html', dados)
+
+
+def dados_candidato_por_id(request, parametro):
+    candidato = Candidato.objects.get(id=parametro)
+    dados = {'candidato': candidato}
+
+    return render(request, 'candidatos/candidato.html', dados)
