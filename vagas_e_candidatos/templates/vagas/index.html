@@ -11,6 +11,24 @@
     <a href=" {% url 'dashboard' %}">Voltar</a>
     <br></br>
     <h1>Dashboard Vagas</h1>
+
+    <table border="1" cellpadding="5" cellspacing="3">
+        <tr>
+            <th>Título</th>
+            <th>Área</th>
+            <th>Tipo contrato</th>
+            <th>Descrição</th>
+        </tr>
+        {% for vaga in vagas %}
+        <tr>
+            <td>{{ vaga.titulo }}</td>
+            <td>{{ vaga.get_area_display }}</td>
+            <td>{{ vaga.get_tipo_contrato_display }}</td>
+            <td>{{ vaga.descricao }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </body>
 
 </html>

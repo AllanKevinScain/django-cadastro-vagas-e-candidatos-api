@@ -55,15 +55,18 @@ ESCOLARIDADE_CHOICES = [
     ('dou', 'Doutorado'),
 ]
 
+
 class Vaga(models.Model):
     titulo = models.CharField(max_length=200)
     area = models.CharField(max_length=50, choices=AREA_CHOICES)
-    tipo_contrato = models.CharField(max_length=50, choices=TIPO_CONTRATO_CHOICES)
+    tipo_contrato = models.CharField(
+        max_length=50, choices=TIPO_CONTRATO_CHOICES)
     descricao = models.TextField()
 
     def __str__(self):
         return self.titulo
-    
+
+
 class Candidato(models.Model):
     nome = models.CharField(max_length=100)
     sobrenome = models.CharField(max_length=100)
@@ -71,9 +74,10 @@ class Candidato(models.Model):
     genero = models.CharField(max_length=10, choices=GENERO_CHOICES)
     email = models.EmailField(max_length=100)
     telefone = models.CharField(max_length=15)
-    escolaridade = models.CharField(max_length=30, choices=ESCOLARIDADE_CHOICES)
-    vaga = models.ForeignKey(Vaga, on_delete=models.CASCADE)
+    escolaridade = models.CharField(
+        max_length=30, choices=ESCOLARIDADE_CHOICES)
+    vaga = models.ForeignKey(
+        Vaga, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome
-

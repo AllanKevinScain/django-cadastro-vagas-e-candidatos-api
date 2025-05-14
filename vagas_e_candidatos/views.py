@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Vaga, Candidato
 
 
 def index(request):
@@ -6,8 +7,14 @@ def index(request):
 
 
 def vagas_index(request):
-    return render(request, 'vagas/index.html')
+    vagas = Vaga.objects.all()
+    dados = {'vagas': vagas}
+
+    return render(request, 'vagas/index.html', dados)
 
 
 def candidatos_index(request):
-    return render(request, 'candidatos/index.html')
+    candidatos = Candidato.objects.all()
+    dados = {'candidatos': candidatos}
+
+    return render(request, 'candidatos/index.html', dados)
