@@ -72,6 +72,7 @@ class Candidato(models.Model):
     email = models.EmailField(max_length=100)
     telefone = models.CharField(max_length=15)
     escolaridade = models.CharField(max_length=30, choices=ESCOLARIDADE_CHOICES)
+    vaga = models.ForeignKey(Vaga, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
