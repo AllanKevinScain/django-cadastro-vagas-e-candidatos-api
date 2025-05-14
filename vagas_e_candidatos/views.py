@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Vaga, Candidato
+from .forms import VagaForm
 
 
 def index(request):
@@ -32,3 +33,10 @@ def dados_vaga_por_id(request, parametro):
     dados = {'vaga': vaga}
 
     return render(request, 'vagas/vaga.html', dados)
+
+
+def cadastrar_vaga(request):
+    form = VagaForm()
+    dados = {'form': form}
+
+    return render(request, 'vagas/cadastrar_vaga.html', dados)
