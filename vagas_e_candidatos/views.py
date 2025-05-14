@@ -25,3 +25,10 @@ def dados_candidato_por_id(request, parametro):
     dados = {'candidato': candidato}
 
     return render(request, 'candidatos/candidato.html', dados)
+
+
+def dados_vaga_por_id(request, parametro):
+    vaga = Vaga.objects.get(id=parametro)
+    dados = {'vaga': vaga}
+
+    return render(request, 'vagas/vaga.html', dados)

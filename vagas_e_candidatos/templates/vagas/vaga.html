@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaga</title>
+</head>
+
+<body>
+    <a href=" {% url 'vagas_dashboard' %}">Voltar</a>
+    <br></br>
+    <h1>Vaga</h1>
+    <h2>{{ vaga.titulo }}</h2>
+
+    <br></br>
+    <p>Área: {{ vaga.get_area_display }}</p>
+    <p>Contrato: {{ vaga.get_tipo_contrato_display }}</p>
+    <label for="textarea_descricao">Descrição da vaga</p>
+        <textarea id="textarea_descricao" name="textarea_descricao" disabled rows="10"
+            cols="60">{{ vaga.descricao }}</textarea>
+</body>
+
+</html>
