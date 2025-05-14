@@ -36,6 +36,25 @@ TIPO_CONTRATO_CHOICES = [
     ('out', 'Outros'),
 ]
 
+GENERO_CHOICES = [
+    ('mas', 'Masculino'),
+    ('fem', 'Feminino'),
+    ('ninf', 'Prefere não informar'),
+]
+
+ESCOLARIDADE_CHOICES = [
+    ('nin', 'Nenhuma'),
+    ('funi', 'Fundamental Incompleto'),
+    ('fuc', 'Fundamental Completo'),
+    ('mei', 'Médio Incompleto'),
+    ('med', 'Médio Completo'),
+    ('sui', 'Superior Incompleto'),
+    ('sup', 'Superior Completo'),
+    ('pos', 'Pós-graduação'),
+    ('mes', 'Mestrado'),
+    ('dou', 'Doutorado'),
+]
+
 class Vaga(models.Model):
     titulo = models.CharField(max_length=200)
     area = models.CharField(max_length=50, choices=AREA_CHOICES)
@@ -44,3 +63,16 @@ class Vaga(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class Candidato(models.Model):
+    nome = models.CharField(max_length=100)
+    sobrenome = models.CharField(max_length=100)
+    data_nascimento = models.DateField()
+    genero = models.CharField(max_length=10, choices=GENERO_CHOICES)
+    email = models.EmailField(max_length=100)
+    telefone = models.CharField(max_length=15)
+    escolaridade = models.CharField(max_length=30, choices=ESCOLARIDADE_CHOICES)
+
+    def __str__(self):
+        return self.nome
+
